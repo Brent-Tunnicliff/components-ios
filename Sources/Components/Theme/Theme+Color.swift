@@ -52,3 +52,9 @@ extension Theme {
         case seed
     }
 }
+
+extension Color {
+    static func theme(_ color: Theme.Color) -> Color {
+        Color(color.rawValue, bundle: .module)
+    }
+}
