@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "4ED20A1C-3C4D-46D4-B9FF-F84BC078FFA5",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "Components",
+          "name" : "Components"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ComponentsTests",
+        "name" : "ComponentsTests"
+      }
+    }
+  ],
+  "version" : 1
+}
