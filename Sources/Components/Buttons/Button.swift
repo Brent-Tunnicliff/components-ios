@@ -22,6 +22,10 @@ public struct Button: View {
             .buttonStyle(.bordered)
             .foregroundStyle(foregroundStyle)
             .tint(tint)
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(foregroundStyle, lineWidth: 1)
+            )
     }
 
     private var label: some View {
