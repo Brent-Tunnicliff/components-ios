@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Brent Tunnicliff
+// Copyright © 2023 Brent Tunnicliff <btunnicliff.dev@gmail.com>
 
 import SwiftUI
 
@@ -32,39 +32,32 @@ public struct ProminentButton: View {
     private var foregroundStyle: Color {
         switch variant {
         case .destructive:
-                .theme(.onError)
+            .theme(.onError)
         case .primary:
-                .theme(.onPrimary)
+            .theme(.onPrimary)
         case .secondary:
-                .theme(.onSecondary)
+            .theme(.onSecondary)
         case .tertiary:
-                .theme(.onTertiary)
+            .theme(.onTertiary)
         }
     }
 
     private var tint: Color {
         switch variant {
         case .destructive:
-                .theme(.error)
+            .theme(.error)
         case .primary:
-                .theme(.primary)
+            .theme(.primary)
         case .secondary:
-                .theme(.secondary)
+            .theme(.secondary)
         case .tertiary:
-                .theme(.tertiary)
+            .theme(.tertiary)
         }
     }
 }
 
 #Preview {
-    VStack {
-        ProminentButton("Click me", .destructive, action: {})
-
-        ProminentButton("Click me", .primary, action: {})
-
-        ProminentButton("Click me", .secondary, action: {})
-
-        ProminentButton("Click me", .tertiary, action: {})
+    ButtonVariantPreview { variant in
+        ProminentButton("Click me", variant, action: {})
     }
-    .padding(16)
 }

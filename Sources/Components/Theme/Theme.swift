@@ -1,3 +1,3 @@
-// Copyright (c) 2023 Brent Tunnicliff
+// Copyright © 2023 Brent Tunnicliff <btunnicliff.dev@gmail.com>
 
 enum Theme {}

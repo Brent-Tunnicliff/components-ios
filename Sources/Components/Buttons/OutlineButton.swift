@@ -1,8 +1,8 @@
-// Copyright (c) 2023 Brent Tunnicliff
+// Copyright © 2023 Brent Tunnicliff <btunnicliff.dev@gmail.com>
 
 import SwiftUI
 
-public struct Button: View {
+public struct OutlineButton: View {
     private let action: () -> Void
     private let title: any StringProtocol
     private let variant: ButtonVariant
@@ -29,45 +29,39 @@ public struct Button: View {
     }
 
     private var label: some View {
-        Text(title)
+        SwiftUI.Text(title)
             .frame(maxWidth: .infinity)
     }
 
     private var foregroundStyle: Color {
         switch variant {
         case .destructive:
-                .theme(.error)
+            .theme(.error)
         case .primary:
-                .theme(.primary)
+            .theme(.primary)
         case .secondary:
-                .theme(.secondary)
+            .theme(.secondary)
         case .tertiary:
-                .theme(.tertiary)
+            .theme(.tertiary)
         }
     }
 
     private var tint: Color {
         switch variant {
         case .destructive:
-                .theme(.errorContainer)
+            .theme(.errorContainer)
         case .primary:
-                .theme(.primaryContainer)
+            .theme(.primaryContainer)
         case .secondary:
-                .theme(.secondaryContainer)
+            .theme(.secondaryContainer)
         case .tertiary:
-                .theme(.tertiaryContainer)
+            .theme(.tertiaryContainer)
         }
     }
 }
 
 #Preview {
-    VStack {
-        Button("Click me", .destructive, action: {})
-
-        Button("Click me", .primary, action: {})
-
-        Button("Click me", .secondary, action: {})
-
-        Button("Click me", .tertiary, action: {})
-    }.padding(16)
+    ButtonVariantPreview { variant in
+        OutlineButton("Click me", variant, action: {})
+    }
 }
