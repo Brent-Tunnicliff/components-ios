@@ -20,17 +20,19 @@ public struct ProminentButton: View {
     public var body: some View {
         SwiftUI.Button(action: action, label: { label })
             .buttonStyle(.borderedProminent)
-            .foregroundStyle(foregroundStyle)
-            .tint(tint)
+            .foregroundStyle(variant.foregroundStyle)
+            .tint(variant.tint)
     }
 
     private var label: some View {
         Text(title)
             .frame(maxWidth: .infinity)
     }
+}
 
-    private var foregroundStyle: Color {
-        switch variant {
+private extension ButtonVariant {
+    var foregroundStyle: Color {
+        switch self {
         case .destructive:
             .theme(.onError)
         case .primary:
@@ -42,8 +44,8 @@ public struct ProminentButton: View {
         }
     }
 
-    private var tint: Color {
-        switch variant {
+    var tint: Color {
+        switch self {
         case .destructive:
             .theme(.error)
         case .primary:
@@ -57,7 +59,7 @@ public struct ProminentButton: View {
 }
 
 #Preview {
-    ButtonVariantPreview { variant in
+    VariantPreview(ButtonVariant.allCases) { variant in
         ProminentButton("Click me", variant, action: {})
     }
 }

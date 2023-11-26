@@ -20,11 +20,11 @@ public struct OutlineButton: View {
     public var body: some View {
         SwiftUI.Button(action: action, label: { label })
             .buttonStyle(.bordered)
-            .foregroundStyle(foregroundStyle)
-            .tint(tint)
+            .foregroundStyle(variant.foregroundStyle)
+            .tint(variant.tint)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(foregroundStyle, lineWidth: 1)
+                    .stroke(variant.foregroundStyle, lineWidth: 1)
             )
     }
 
@@ -32,9 +32,11 @@ public struct OutlineButton: View {
         SwiftUI.Text(title)
             .frame(maxWidth: .infinity)
     }
+}
 
-    private var foregroundStyle: Color {
-        switch variant {
+private extension ButtonVariant {
+    var foregroundStyle: Color {
+        switch self {
         case .destructive:
             .theme(.error)
         case .primary:
@@ -46,8 +48,8 @@ public struct OutlineButton: View {
         }
     }
 
-    private var tint: Color {
-        switch variant {
+    var tint: Color {
+        switch self {
         case .destructive:
             .theme(.errorContainer)
         case .primary:
@@ -61,7 +63,7 @@ public struct OutlineButton: View {
 }
 
 #Preview {
-    ButtonVariantPreview { variant in
+    VariantPreview(ButtonVariant.allCases) { variant in
         OutlineButton("Click me", variant, action: {})
     }
 }
