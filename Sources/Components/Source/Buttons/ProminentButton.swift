@@ -59,7 +59,9 @@ private extension ButtonVariant {
 }
 
 #Preview {
-    VariantPreview(ButtonVariant.allCases) { variant in
-        ProminentButton("Click me", variant, action: {})
+    List {
+        VariantPreview(ButtonVariant.allCases) { variant in
+            ProminentButton("Click me", variant, action: {})
+        }
     }
 }
