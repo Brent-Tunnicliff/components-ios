@@ -9,7 +9,7 @@ public struct ProminentButton: View {
 
     public init(
         _ title: any StringProtocol,
-        _ variant: ButtonVariant = .primary,
+        variant: ButtonVariant = .primary,
         action: @escaping () -> Void
     ) {
         self.action = action
@@ -61,7 +61,7 @@ private extension ButtonVariant {
 #Preview {
     List {
         VariantPreview(ButtonVariant.allCases) { variant in
-            ProminentButton("Click me", variant, action: {})
+            ProminentButton("Click me", variant: variant, action: {})
         }
     }
 }

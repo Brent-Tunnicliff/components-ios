@@ -9,7 +9,7 @@ public struct OutlineButton: View {
 
     public init(
         _ title: any StringProtocol,
-        _ variant: ButtonVariant = .primary,
+        variant: ButtonVariant = .primary,
         action: @escaping () -> Void
     ) {
         self.action = action
@@ -65,7 +65,7 @@ private extension ButtonVariant {
 #Preview {
     List {
         VariantPreview(ButtonVariant.allCases) { variant in
-            OutlineButton("Click me", variant, action: {})
+            OutlineButton("Click me", variant: variant, action: {})
         }
     }
 }
